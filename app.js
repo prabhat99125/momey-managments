@@ -88,7 +88,7 @@ app.post("/login", async (req, res) => {
         res.cookie("authorized", token);
         return res.status(200).json({ id: user.id, email, userName: user.userName, });
     } catch (e) {
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json(e);
     }
 });
 

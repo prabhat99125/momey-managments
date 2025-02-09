@@ -15,7 +15,7 @@ app.use(express.json());
 // app.use(helmet());
 app.use(cookieParser());
 app.use(cors({
-    origin: "*",
+    origin: "https://money-managments.vercel.app",
     credentials: true
 }))
 

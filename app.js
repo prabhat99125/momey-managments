@@ -85,7 +85,7 @@ app.post("/login", async (req, res) => {
         }
         const token = jwt.sign({ email }, process.env.tokenKey);
         res.header('Access-Control-Allow-Credentials', 'true');
-        res.cookie("authorized", token);
+        res.cookie("authorized", token, { httpOnly: true, secure: true, sameSite: 'none'});
         return res.status(200).json({ id: user.id, email, userName: user.userName, });
     } catch (e) {
         res.status(500).json(e);
